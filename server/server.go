@@ -69,7 +69,7 @@ func BuscaCotacaoHandler(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(ctx, time.Millisecond*300)
 	defer cancel()
 	InserirCotacao(ctx, cotacao)
-	//ctx.with
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	cotacaoResponse := &CotacaoResponse{Moeda: parseFloat(cotacao.Usdbrl.Bid)}
